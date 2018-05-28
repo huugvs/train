@@ -37,26 +37,59 @@
             background-color: #E04C44;
             color: white;
         }
+        a { color: inherit; }
+
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Training factory</a>
-    </div>
-    <div class="navbar-right">
-        <button class="btn btn-outline-success mybutton" type="submit">Login</button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Training factory</a>
+        </div>
+        <div class="navbar-right">
+            <button class="btn btn-outline-success mybutton" type="submit">Login</button>
+        </div>
     </div>
 </nav>
 <div class="subnavbar">
     <ul>
-        <li class="active"><a>Hoofdpagina</a></li>
-        <li><a>Activiteiten</a></li>
-        <li><a>Team</a></li>
-        <li><a>Inschrijven</a></li>
-        <li><a>Contact</a></li>
+        <li class="active"><a href="home.html.twig" >Hoofdpagina</a></li>
+        <li><a href="activiteiten.html.twig">Activiteiten</a></li>
+        <li><a href="activiteiten.html.twig">Team</a></li>
+        <li><a href="activiteiten.html.twig">Inschrijven</a></li>
+        <li><a href="activiteiten.html.twig">Contact</a></li>
     </ul>
+</div>
+
+<div class="container">
+    <h2>Alle a</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 
