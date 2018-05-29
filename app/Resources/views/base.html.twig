@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Training factory{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <style>
+            a, a:hover, a:active, a:visited, a:focus {
+                color: white;
+                text-decoration: none; /* no underline */
+            }
+
+            .subnavbar {
+                width: 100vw;
+                background-color: #E04C44;
+                font-size: 17px;
+                padding-top: 10px;
+                margin-top: 50px;
+                padding-bottom: 5px;
+                height: 40px;
+            }
+
+            .subnavbar > ul {
+                list-style: none;
+            }
+
+            .subnavbar > ul > li {
+                display: inline-block;
+                color: white;
+                padding: 0;
+                margin-right: 20px;
+            }
+
+            .subnavbar > ul > li.active > a:hover {
+                cursor: default;
+            }
+
+            .subnavbar > ul > li.active {
+                text-shadow: 1px 1px 5px white;
+            }
+
+            .subnavbar > ul > li > a:hover {
+                cursor: pointer;
+                text-shadow: 1px 1px 5px white;
+            }
+
+            button.mybutton {
+                padding: 0px 10px 0px 10px;
+                border: 1px solid #E04C44;
+                background-color: #343a40;
+                color: #E04C44;
+            }
+
+            button.mybutton:hover {
+                border: 1px solid #E04C44;
+                background-color: #E04C44;
+                color: white;
+            }
+
+            button.mybutton:active {
+                border: 1px solid #E04C44 !important;
+                background-color: #E04C44 !important;
+                color: white !important;
+            }
+
+            button.mybutton:focus {
+                border: 1px solid #E04C44 !important;
+                background-color: #E04C44 !important;
+                color: white !important;
+                outline: none !important;
+                box-shadow: none;
+            }
+
+            .red {
+                color: #E04C44 !important;
+            }
+
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                background-color: #343a40;
+                color: white;
+            }
+
+            nav > div > div > a > i {
+                transform: rotate(45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand red" href="#">
+                        <i class="far fa-hand-rock"></i> <span>Training factory</span>
+                    </a>
+                </div>
+                <div class="navbar-right">
+                    <button class="btn mybutton" type="submit">Login</button>
+                </div>
+            </div>
+        </nav>
+        <div class="subnavbar">
+            <ul>
+                {% for route in accesibleRoutes %}
+                    {% if route in app.request.pathinfo %}
+                        <li class="active"><a href="{{ route }}">{{ route }}</a>
+                    {% elseif app.request.pathinfo == '/' and route == 'Hoofdpagina' %}
+                        <li class="active"><a href="{{ route }}">{{ route }}</a>
+                    {% else %}
+                        <li><a href="{{ route }}">{{ route }}</a>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">Miko en Huug inc.</span>
+            </div>
+        </footer>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</html>
